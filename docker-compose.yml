@@ -13,7 +13,7 @@ services:
       - mika_net
 
   mariadb:
-    image: mariadb:10.3
+    image: mariadb:10.4
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: mika
@@ -25,14 +25,14 @@ services:
       - mika_net
 
   redis:
-    image: redis:6-alpine
+    image: redis:7-alpine
     restart: always
     networks:
       - mika_testing
 
   mika:
     build:
-      dockerfile: docker/Dockerfilesq
+      dockerfile: docker/Dockerfile
       context: "."
     restart: always
     depends_on:
